@@ -1,0 +1,61 @@
+/* ==========================================================
+   design.css
+   Small custom styles only. Everything else uses Tailwind CSS
+   classes directly in compare.html.
+   ========================================================== */
+
+/* Smooth color transition when table cells switch between
+   "same" and "different" highlighting */
+td {
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+/* Table row divider (Tailwind border utilities didn't give the
+   exact soft look we wanted for zebra rows) */
+#comparisonTableBody tr {
+  border-bottom: 1px solid #eef1f6;
+}
+#comparisonTableBody tr:last-child {
+  border-bottom: none;
+}
+
+/* Small "Different" / "Same" badge shared style */
+.badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 1px 8px;
+  border-radius: 9999px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.badge-diff {
+  background-color: #fef3c7; /* subtle amber */
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.badge-same {
+  background-color: #f1f5f9; /* subtle slate */
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+/* Gentle custom scrollbar for the table's horizontal scroll on
+   small screens, so it feels a little more polished */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 6px;
+}
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+}
+
+/* Focus outline kept visible for accessibility/keyboard use
+   without changing Tailwind's default ring behaviour */
+select:focus,
+button:focus {
+  outline-offset: 2px;
+}
